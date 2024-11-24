@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDC Login & Signup</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Import new font */
+        
+        body {
+            font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+            background-color: rgb(34, 34, 34);
+            position: relative;
+            color: white; /* Change text color to white */
+            padding: 20px; /* Add padding to ensure content is not cut off */
+        }
+        .container {
+            text-align: center;
+        }
+        .image-section {
+            background-color: rgb(51, 51, 51); /* Background color for the main image and preview block */
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+            margin-bottom: 20px; /* Add margin between sections */
+        }
+        .image-section img {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid white; /* Thinner and white border */
+        }
+        .corner-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .corner-buttons button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .corner-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .corner-buttons img {
+            width: 20px;
+            height: 20px;
+        }
+        .description {
+            width: 345px; /* Change width to 360px */
+            margin: 30px auto; /* Add margin between images and descriptions */
+            text-align: left;
+            margin-bottom: 30px ; 
+        }
+        .preview {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .preview img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s, border 0.3s;
+            border: 1px solid white; /* Thinner and white border */
+        }
+        .preview img:hover {
+            transform: scale(1.1);
+            border: 1px solid #0056b3; /* Thinner border on hover */
+        } 
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background-image: url('images/logo.jpg'); /* Background image from the main image */
+            background-size: cover;
+            background-position: center;
+            padding: 10px 10px 260px 10px; /* Adjust padding to move the title to the top */
+            border-radius: 8px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="corner-buttons">
+        <button onclick="redirectToLogin()">
+            <img src="images/login-icon.png" alt="Login Icon"> Login
+        </button>
+        <button onclick="redirectToSignup()">
+            <img src="images/signup-icon.png" alt="Signup Icon"> Signup
+        </button>
+    </div>
+    <div class="container">
+        <div class="title">Pocket Ready: EDC for Every Adventure</div>
+        <div class="image-section">
+            <img id="main-image-1" src="images/20.png" alt="Description of image">
+            <div class="preview">
+                <img src="images/20.png" alt="Preview 1" onmouseover="updateMainImage1('images/20.png')">
+                <img src="images/20.1.png" alt="Preview 2" onmouseover="updateMainImage1('images/20.1.png')">
+                <!-- Add more preview images as needed -->
+                <!-- Add more preview images here -->
+            </div>
+        </div>
+        <p class="description">The Nitecore P20iX is a powerful tactical flashlight designed for professional users, including military, law enforcement, and search-and-rescue teams. With a maximum output of 4000 lumens and a beam distance of up to 221 meters, it delivers exceptional visibility even in demanding conditions. Equipped with four CREE XP-L2 V6 LEDs, a STROBE mode for tactical applications, and powered by a 21700i or two CR123 batteries, this flashlight is both versatile and reliable. Its compact dimensions (141.5 mm in length) and lightweight design (116 g) make it ideal for everyday carry and heavy-duty use. With a runtime of up to 350 hours and rechargeable functionality, it offers outstanding convenience and performance.</p>
+        
+        <div class="image-section">
+            <img id="main-image-2" src="images/v-jpg.webp" alt="Third description">
+            <div class="preview">
+                <img src="images/v-jpg.webp" alt="Preview 1" onmouseover="updateMainImage2('images/v-jpg.webp')">
+                <img src="images/v21-jpg.webp" alt="Preview 2" onmouseover="updateMainImage2('images/v21-jpg.webp')">
+                <!-- Add more preview images as needed -->
+                <!-- Add more preview images here -->
+            </div>
+        </div>
+        <p class="description">
+            Key features<br>
+            A compact tool for everyday tasks<br>
+            Swiss made pocket knife with 7 functions<br>
+            Includes scissors and a nail file with screwdriver
+        </p>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+        })();
+
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        function redirectToSignup() {
+            window.location.href = 'signup.html';
+        }
+
+        function updateMainImage1(src) {
+            document.getElementById('main-image-1').src = src;
+        }
+
+        function updateMainImage2(src) {
+            document.getElementById('main-image-2').src = src;
+        }
+    </script>
+</body>
+</html>
